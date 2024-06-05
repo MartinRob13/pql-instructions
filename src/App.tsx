@@ -1,11 +1,14 @@
 
-import './App.css'
+import './App.scss'
+import { NavBar } from './components/NavBar/NavBar'
 
 function App() {
 
   return (
     <>
-      <h1>Quidditch League</h1>
+    
+      <NavBar />
+
     </>
   )
 }
