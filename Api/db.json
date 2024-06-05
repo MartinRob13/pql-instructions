@@ -4,6 +4,11 @@
       "id": 1,
       "name": "Gryffindor",
       "slogan": "Where dwell the brave at heart"
+    },
+    {
+      "id": 1,
+      "name": "Slytherin",
+      "slogan": "Ambition, pride and cunning"
     }
   ],
   "players": [

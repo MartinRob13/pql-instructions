@@ -1,30 +1,28 @@
-# React + TypeScript + Vite
+# Premier Quidditch League
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is about the premier quidditch league
+Based on the [catalyst challenge](https://github.com/ca-taly-st/pql-instructions)
 
-Currently, two official plugins are available:
+##Requirements
+Fisrt you need to have already installed Node and react.
+We are used [Vite with react](https://vitejs.dev/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##Getting Started
 
-## Expanding the ESLint configuration
+##Development
+Install all dependencies
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+    npm install
 
-- Configure the top-level `parserOptions` property like this:
+And to run the project
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+    npm run dev
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+This starts your app in development mode, rebuilding assets on file changes
+
+##Liting 
+This project uses [ESLint](https://eslint.org/) for liting. that configured in .eslint.cjs.
+
+##Formating
+The project uses [Prettier](https://prettier.io/) for formatting. It's recommended to install an editor plugin to get auto-formatting on save. There's also a npm run format script that
+you can use to format all files in the project.
