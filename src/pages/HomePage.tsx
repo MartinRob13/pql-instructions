@@ -1,10 +1,13 @@
-import { NavBar } from "../components/NavBar/NavBar"
+import { Typography } from "@mui/material"
+import { AppLayout } from "../layout/AppLayout"
 
 
 export const HomePage = () => {
   return (
     <>
-        <NavBar />
+       <AppLayout >
+          <Typography>Home Page</Typography>
+        </AppLayout>
     </>
   )
 }
