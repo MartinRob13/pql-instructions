@@ -1,11 +1,12 @@
 
-import './App.css'
+import './App.scss'
+import { AppRouter } from './router/AppRouter'
 
 function App() {
 
   return (
     <>
-      <h1>Quidditch League</h1>
+      <AppRouter />
     </>
   )
 }

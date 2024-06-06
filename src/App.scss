@@ -1,0 +1,30 @@
+@use 'shared.scss';
+
+#root {
+  margin: 0;
+  padding: 0;
+
+}
+
+.houseCard{
+  max-width: 700px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  & img {
+    width: 100%;
+    height: 500px;
+    border-radius: 8px;
+    border-radius: 50%;
+  }
+
+  &-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+}
