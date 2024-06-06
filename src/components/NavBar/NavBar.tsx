@@ -7,7 +7,20 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ['Home', 'Teams', 'Players'];
+const navItems = [
+  {
+    name: "Home",
+    route: "/",
+  },
+  {
+    name: "Teams",
+    route: "/teams",
+  },
+  {
+    name: "Players",
+    route: "/players",
+  },
+];
 
 
 export const NavBar = (props: Props) => {
@@ -26,9 +39,9 @@ export const NavBar = (props: Props) => {
         <Divider />
         <List>
           {navItems.map((item) => (
-            <ListItem key={item} disablePadding>
+            <ListItem key={item.name} disablePadding>
               <ListItemButton sx={{ textAlign: 'center' }}>
-                <ListItemText primary={item} />
+                <ListItemText primary={item.name} />
               </ListItemButton>
             </ListItem>
           ))}
@@ -65,8 +78,8 @@ export const NavBar = (props: Props) => {
             <Divider />
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                 {navItems.map((item) => (
-                  <Button key={item} sx={{ color: '#fff' }}>
-                    {item}
+                  <Button key={item.name} href={item.route} sx={{ color: '#fff' }}>
+                    {item.name}
                   </Button>
                 ))}
             </Box>

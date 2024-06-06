@@ -1,6 +1,11 @@
+import { AppLayout } from "../layout/AppLayout"
 
 export const PlayersPage = () => {
   return (
-    <div>PlayersPage</div>
+   <>
+    <AppLayout>
+      <h1>Players Page</h1>
+    </AppLayout>
+   </>
   )
 }
