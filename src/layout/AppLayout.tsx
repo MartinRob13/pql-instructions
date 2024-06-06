@@ -15,6 +15,7 @@ export const AppLayout = ({children}:Props) => {
             sx={{ flexGrow: 1}}
         >   
             <Toolbar />
+            
             {children}
 
         </Box>
