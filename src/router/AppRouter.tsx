@@ -10,7 +10,7 @@ export const AppRouter = () => {
         <Routes>
             <Route path="/" element={<HomePage />}/>
             <Route path="players" element={<PlayersPage /> }/>
-            <Route path="tems" element={ <TeamsPage /> }/>
+            <Route path="teams" element={ <TeamsPage /> }/>
 
             <Route path="player/:id" element={<PlayerPage /> }/>
 

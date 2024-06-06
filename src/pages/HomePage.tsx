@@ -1,5 +1,5 @@
 import { AppLayout } from "../layout/AppLayout"
-import { HeroBanner, HeroBannerProps } from "../components/HeroBanner"
+import { HeroBannerWithImage, HeroBannerWithImageProps } from "../components/HeroBannerwithImage"
 import { Grid, Typography } from "@mui/material"
 
 
@@ -29,7 +29,7 @@ export const HomePage = () => {
       
   ];
 
-  const homeBannerProps:HeroBannerProps = {
+  const homeBannerProps:HeroBannerWithImageProps = {
     title: "Welcome to the Official Page of the Premier Quidditch League",
     subtitle: "Don't Muggle It! Become a Quidditch master. Join the League today! ",
     src:"/images/quidditch_hero.png"
@@ -38,7 +38,7 @@ export const HomePage = () => {
   return (
     <>
        <AppLayout >
-          <HeroBanner {... homeBannerProps}/>
+          <HeroBannerWithImage {... homeBannerProps}/>
           <Grid container rowSpacing={1} p={5} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ display: 'flex' }}>
             <Typography variant="h4">Unleash the Magic! Discover the houses in the Quidditch League</Typography>
             {

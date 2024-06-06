@@ -1,6 +1,40 @@
+import { Button, Grid, Typography } from "@mui/material"
+import { HeroBanner, HeroBannerProps } from "../components/HeroBanner"
+import { AppLayout } from "../layout/AppLayout"
+import { AddCircle } from "@mui/icons-material";
+import { TeamsList } from "../components/TeamsList";
+import { useFetchGetTeams } from "../hooks/useFetchGetTeams";
 
 export const TeamsPage = () => {
+
+  const {teams} = useFetchGetTeams();
+  
+  const teamsBannerProps:HeroBannerProps = {
+    title: "Welcome to the teams admin page",
+    subtitle: "Challenge Accepted! Build your dream team and join the Quidditch League.",
+  }
+
   return (
-    <div>TeamsPage</div>
+    <>
+    <AppLayout>
+      <HeroBanner {... teamsBannerProps}/>
+      <Grid container p={5}>
+        <Grid container m={4} sx={{ width: '100%', display: 'flex'}} direction="column" >
+          <Grid item sx={{ display:'flex', justifyContent: 'space-between', width: '100%'}}>
+          <Typography variant="h3">Registered teams</Typography>
+            <Button variant="contained" endIcon={<AddCircle />}>
+              Add new team
+            </Button>
+          </Grid>
+          <Grid item xs={12} md={4}  >
+            
+              <TeamsList teams={teams} />
+            
+          </Grid>
+        </Grid>
+      </Grid>
+
+    </AppLayout>
+   </>
   )
 }

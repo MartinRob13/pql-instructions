@@ -1,13 +1,14 @@
 import { Box, Grid, Typography } from '@mui/material';
 
-export interface HeroBannerProps {
+export interface HeroBannerWithImageProps {
+    src: string;
     title: string;
     subtitle: string;
 }
 
-export const HeroBanner = ({title, subtitle}:HeroBannerProps) => {
+export const HeroBannerWithImage = ({src, title, subtitle}:HeroBannerWithImageProps) => {
   return (
-    <Grid container sx={{ background: '#dde',  height: { sm: '', md:'500px'}, m:0, color: '#fff', backgroundSize: 'cover'}}>
+    <Grid container sx={{ backgroundImage: `url(${src})`,  height: { sm: '', md:'500px'}, m:0, color: '#fff', backgroundSize: 'cover'}}>
         <Grid container sx={{ background: 'rgba(0, 0, 0, 0.6)'}}>
             <Grid container sx={{display: 'flex', justifyContent: 'center', alignItems:'center', flexDirection: 'column' }}>
                 <Box>
