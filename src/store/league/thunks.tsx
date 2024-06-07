@@ -1,9 +1,16 @@
-import { setTeams, addNewTeam, loadTeams, setPlayers, deletePlayerById, deleteTeamById, addNewPlayer } from "./leagueSlice";
+import { setTeams, addNewTeam, loadTeams, setPlayers, deletePlayerById, deleteTeamById, addNewPlayer, updateTeam } from "./leagueSlice";
 import { useFetchGetTeams } from "../../hooks/useFetchGetTeams";
 import { Dispatch } from "@reduxjs/toolkit";
-import { AppDispatch } from "../store";
+import { AppDispatch, RootState } from "../store";
 import { useFetchGetPlayers } from "../../hooks/useFetchGetPlayers";
 import { useDeletePlayer } from "../../hooks/useDeletePlayer";
+
+export interface updateNewTeamProp {
+    id?: number,
+    name: string,
+    slogan: string,
+    players: number[],
+}
 
 export interface createNewTeamProp {
     id?: number,
@@ -19,6 +26,11 @@ export interface createNewPlayerProp {
     position: string;
 }
 
+export interface updateMembersTeamProps {
+    teamId: number,
+    players: number[],
+}
+
 export const startLoadingTeams = () => {
     return async( dispatch:AppDispatch ) => {
         
@@ -27,6 +39,36 @@ export const startLoadingTeams = () => {
         dispatch(setTeams( allTeams))
 
     }
+}
+
+export const updateMembersTeam = (team: updateNewTeamProp) => {
+    return async( dispatch:AppDispatch, getState: RootState ) => {
+        const {players} = getState().league;
+        
+        //deuda tecnica aqui, ya mande los id de usuario que se deben de modificar, solo falta hacer uno por uno
+
+        console.log(players,team.id);
+        
+        
+        // await fetch(import.meta.env.VITE_SERVERURL+"/teams/"+team.id, {
+        //     method: "PUT",
+        //     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        //     credentials: "same-origin", // include, *same-origin, omit
+        //     headers: {
+        //     "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify(teamModified),
+        // })
+        // .then(res => res.json())
+        // .then(json => console.log(json))
+        // .catch(err => console.error(err))
+        // .finally(() =>  {
+        //     dispatch(updateTeam(teamsToApi))
+        // });   
+        
+
+    }
+
 }
 
 export const createNewTeam = ({name,slogan}:createNewTeamProp) => {
