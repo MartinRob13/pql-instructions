@@ -1,4 +1,4 @@
-import { setTeams, addNewTeam, loadTeams, setPlayers, deletePlayerById, deleteTeamById, addNewPlayer, updateTeam } from "./leagueSlice";
+import { setTeams, addNewTeam, loadTeams, setPlayers, deletePlayerById, deleteTeamById, addNewPlayer } from "./leagueSlice";
 import { useFetchGetTeams } from "../../hooks/useFetchGetTeams";
 import { Dispatch } from "@reduxjs/toolkit";
 import { AppDispatch, RootState } from "../store";

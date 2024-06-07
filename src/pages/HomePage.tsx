@@ -49,7 +49,7 @@ export const HomePage = () => {
             <Typography variant="h4">Unleash the Magic! Discover the houses in the Quidditch League</Typography>
             {
               houses.map(house => (
-                <Grid container item mt={3} xs={6}>
+                <Grid container item mt={3} xs={6} key={house.name}>
                   <div className="houseCard">
                       <div>
                         <img src={house.image} alt="house of hogwarts"/>
