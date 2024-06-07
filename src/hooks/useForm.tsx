@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-interface targetProps {
+export interface targetProps {
     target: HTMLFormElement,
 }
 

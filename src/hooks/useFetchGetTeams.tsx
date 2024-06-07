@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { teamInterface } from "../utils/Interfaces";
 
-export const useFetchGetTeams = () => {
+export const useFetchGetTeams = async() => {
   
-    const [teams, setteams] = useState<teamInterface[]>([]);
+    const [allTeams, setteams] = useState<teamInterface[]>([]);
 
     useEffect(() => {
         fetch(import.meta.env.VITE_SERVERURL+"/teams", {
@@ -14,6 +14,5 @@ export const useFetchGetTeams = () => {
         })
         .finally();
     }, []);
-
-    return {teams}
+    return {allTeams}
 }

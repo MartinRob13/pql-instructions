@@ -39,11 +39,11 @@ export const leagueSlice = createSlice({
 
         },
 
-        loadPlayers: (state, action) => {
-
+        setPlayers: (state, action) => {
+            state.players = action.payload;
         },
         addNewPlayer: (state, action) => {
-
+            state.players.push(action.payload);
         },
         setSavingPlayer: (state) => {
 
@@ -52,7 +52,7 @@ export const leagueSlice = createSlice({
 
         },
         deletePlayerById: (state, action) => {
-
+            state.players = state.players.filter(player => player.id != action.payload)
         }
     }
 });
@@ -63,7 +63,7 @@ export const {
     loadTeams,
     updateTeam,
     deleteTeamById,
-    loadPlayers,
+    setPlayers,
     addNewPlayer,
     setSavingPlayer,
     updatePlayer,

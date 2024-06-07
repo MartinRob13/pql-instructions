@@ -9,5 +9,5 @@ export interface playerInterface {
     name: string;
     age: number;
     position: string;
-    team_id: number;
+    team_id?: number;
 }

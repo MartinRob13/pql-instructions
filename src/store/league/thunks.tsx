@@ -1,7 +1,9 @@
-import { setTeams, addNewTeam, loadTeams } from "./leagueSlice";
+import { setTeams, addNewTeam, loadTeams, setPlayers, deletePlayerById, deleteTeamById, addNewPlayer } from "./leagueSlice";
 import { useFetchGetTeams } from "../../hooks/useFetchGetTeams";
 import { Dispatch } from "@reduxjs/toolkit";
-// import { RootState } from "../store";
+import { AppDispatch } from "../store";
+import { useFetchGetPlayers } from "../../hooks/useFetchGetPlayers";
+import { useDeletePlayer } from "../../hooks/useDeletePlayer";
 
 export interface createNewTeamProp {
     id?: number,
@@ -10,12 +12,19 @@ export interface createNewTeamProp {
     players?: number[],
 }
 
-export const startLoadingTeams = () => {
-    return async( dispatch:Dispatch ) => {
-        
-        const {teams} = await useFetchGetTeams();
+export interface createNewPlayerProp {
+    id?: number,
+    name: string,
+    age: 12,
+    position: string;
+}
 
-        dispatch(setTeams(teams))
+export const startLoadingTeams = () => {
+    return async( dispatch:AppDispatch ) => {
+        
+        const {allTeams} = await useFetchGetTeams();
+
+        dispatch(setTeams( allTeams))
 
     }
 }
@@ -29,7 +38,7 @@ export const createNewTeam = ({name,slogan}:createNewTeamProp) => {
             slogan: slogan,
         }
 
-        fetch(import.meta.env.VITE_SERVERURL+"/teams", {
+        await fetch(import.meta.env.VITE_SERVERURL+"/teams", {
             method: "POST",
             cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
             credentials: "same-origin", // include, *same-origin, omit
@@ -46,19 +55,49 @@ export const createNewTeam = ({name,slogan}:createNewTeamProp) => {
         }).catch(err => console.error(err))
         .finally(() =>  {
             dispatch(loadTeams())
-        });
-          
-
-        
-
-        
+        });    
        
     }
 }
 
-//    const newPlayer = {
-//     name: '',
-//     age: null,
-//     position: '',
-//     team_id: null
-// }
+export const createNewPlayer = (player: createNewPlayerProp) => {
+    return async( dispatch:Dispatch) => {
+        await fetch(import.meta.env.VITE_SERVERURL+"/players", {
+            method: "POST",
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify(player),
+        })
+        .then(res => res.json())
+        .then(json => {{
+            player.id = json.id;
+            dispatch(addNewPlayer(player));
+        }
+        }).catch(err => console.error(err))
+        .finally(() =>  {
+            
+        });    
+
+    }
+}
+
+export const dispatchDeletePlayerById = (id:number) => {
+    return async( dispatch:Dispatch) => {
+
+        await useDeletePlayer(id).finally(() => dispatch(deleteTeamById( id)));
+        dispatch( deletePlayerById(id) );
+    }
+}
+
+
+export const startLoadingPlayers = () => {
+    return async( dispatch:Dispatch) => {
+         
+        const {allPlayers} = await useFetchGetPlayers();
+        dispatch(setPlayers(allPlayers))
+    }
+    
+}
