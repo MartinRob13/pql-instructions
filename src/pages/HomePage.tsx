@@ -1,9 +1,13 @@
 import { AppLayout } from "../layout/AppLayout"
 import { HeroBannerWithImage, HeroBannerWithImageProps } from "../components/HeroBannerwithImage"
 import { Grid, Typography } from "@mui/material"
+import { useAppDispatch } from "../hooks/useAppDispatch";
+import { startLoadingTeams } from "../store/league/thunks";
 
 
 export const HomePage = () => {
+
+  const dispatch = useAppDispatch();
 
   const houses = [
     {
@@ -34,6 +38,8 @@ export const HomePage = () => {
     subtitle: "Don't Muggle It! Become a Quidditch master. Join the League today! ",
     src:"/images/quidditch_hero.png"
   }
+
+  dispatch( startLoadingTeams() );  
 
   return (
     <>

@@ -1,23 +1,36 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createSlice } from '@reduxjs/toolkit';
+import { playerInterface, teamInterface } from '../../utils/Interfaces';
+
+interface leagueState {
+    isSaving: boolean,
+    teamSaved: string,
+    players: playerInterface[],
+    teams: teamInterface[],
+    errorMessage: string,
+  }
+
+const initialState: leagueState = {
+        isSaving: false,
+        teamSaved: '',
+        players: [],
+        teams: [],
+        errorMessage: '',  
+  }
 
 export const leagueSlice = createSlice({
     name: 'league',
-    initialState: {
-        isSaving: true,
-        teamSaved: '',
-        teams: [],
-        players: [],
-        errorMessage: null,    
-    },
+    initialState: initialState,
     reducers: {
-        loadTeams: (state, action) => {
-
+        setTeams: (state, action) => {
+            state.teams = action.payload;
         },
         addNewTeam: (state, action) => {
-
+            state.teams.push(action.payload);
+            state.isSaving = true;
         },
-        setSavingTeam: (state) => {
-
+        loadTeams: (state) => {
+            state.isSaving = false;
         },
         updateTeam: (state, action) => {
 
@@ -45,9 +58,9 @@ export const leagueSlice = createSlice({
 });
 
 export const {
-    loadTeams,
+    setTeams,
     addNewTeam,
-    setSavingTeam,
+    loadTeams,
     updateTeam,
     deleteTeamById,
     loadPlayers,
