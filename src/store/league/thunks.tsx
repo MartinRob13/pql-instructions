@@ -1,4 +1,4 @@
-import { setTeams, addNewTeam, loadTeams, setPlayers, deletePlayerById, deleteTeamById } from "./leagueSlice";
+import { setTeams, addNewTeam, loadTeams, setPlayers, deletePlayerById, deleteTeamById, addNewPlayer } from "./leagueSlice";
 import { useFetchGetTeams } from "../../hooks/useFetchGetTeams";
 import { Dispatch } from "@reduxjs/toolkit";
 import { AppDispatch } from "../store";
@@ -10,6 +10,13 @@ export interface createNewTeamProp {
     name: string,
     slogan: string,
     players?: number[],
+}
+
+export interface createNewPlayerProp {
+    id?: number,
+    name: string,
+    age: 12,
+    position: string;
 }
 
 export const startLoadingTeams = () => {
@@ -50,6 +57,30 @@ export const createNewTeam = ({name,slogan}:createNewTeamProp) => {
             dispatch(loadTeams())
         });    
        
+    }
+}
+
+export const createNewPlayer = (player: createNewPlayerProp) => {
+    return async( dispatch:Dispatch) => {
+        await fetch(import.meta.env.VITE_SERVERURL+"/players", {
+            method: "POST",
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify(player),
+        })
+        .then(res => res.json())
+        .then(json => {{
+            player.id = json.id;
+            dispatch(addNewPlayer(player));
+        }
+        }).catch(err => console.error(err))
+        .finally(() =>  {
+            
+        });    
+
     }
 }
 

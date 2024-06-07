@@ -43,7 +43,7 @@ export const leagueSlice = createSlice({
             state.players = action.payload;
         },
         addNewPlayer: (state, action) => {
-
+            state.players.push(action.payload);
         },
         setSavingPlayer: (state) => {
 

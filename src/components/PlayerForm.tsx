@@ -1,8 +1,11 @@
 import { Close } from "@mui/icons-material"
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, IconButton, InputLabel, MenuItem, Select, TextField } from "@mui/material"
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, IconButton, InputLabel, MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material"
 import { FormEvent } from "react";
-import { useForm } from "../hooks/useForm";
+import { targetProps, useForm } from "../hooks/useForm";
 import { seletOptions } from "../utils/staticData";
+import { useAppDispatch } from "../hooks/useAppDispatch";
+import { createNewPlayer } from "../store/league/thunks";
+import { SubmitTarget } from "react-router-dom/dist/dom";
 
 
 interface TeamsFormProps {
@@ -11,6 +14,8 @@ interface TeamsFormProps {
 }
 
 export const PlayerForm = ({ isDialogOpened, handleCloseDialog }:TeamsFormProps) => {
+
+    const dispatch = useAppDispatch();
 
     const { name , age, position, onInputChange} = useForm({
         name: 'mashle burnedead ',
@@ -23,8 +28,13 @@ export const PlayerForm = ({ isDialogOpened, handleCloseDialog }:TeamsFormProps)
 
     const onSubmit = (event: FormEvent) => {
         event.preventDefault();
+        dispatch(createNewPlayer({name, age, position}))
 
     }
+
+    const handleChange = (event: targetProps) => {
+        onInputChange(event);
+      };
 
 
   return (
@@ -35,7 +45,7 @@ export const PlayerForm = ({ isDialogOpened, handleCloseDialog }:TeamsFormProps)
             maxWidth={'sm'}
         >   
             <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-                Create a new team
+                Create a new player
             </DialogTitle>
             <IconButton
             aria-label="close"
@@ -52,7 +62,7 @@ export const PlayerForm = ({ isDialogOpened, handleCloseDialog }:TeamsFormProps)
             <DialogContent dividers>
                  <form onSubmit={ onSubmit }>
             <DialogContentText>
-                Complete the following magic fields to create a new team for the league.
+                Complete the following magic fields to create a new player for the league.
             </DialogContentText>
                
                     <Grid container  sx={{display: 'flex', flexDirection: 'column'}} >
@@ -64,13 +74,14 @@ export const PlayerForm = ({ isDialogOpened, handleCloseDialog }:TeamsFormProps)
                             labelId="player-position"
                             id="demo-simple-select"
                             value={position}
+                            name="position"
                             placeholder="Select a position"
                             label="Age"
-                            onChange={() => onInputChange}
+                            onChange={handleChange}
                         >
                             {
                                 seletOptions.map( option => (
-                                    <MenuItem key="option" value={option}>{option}</MenuItem>
+                                    <MenuItem key={"option "+option} value={option}>{option}</MenuItem>
 
                                 ))
                             }

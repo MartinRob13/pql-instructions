@@ -1,3 +1,3 @@
 export const seletOptions = [
-    'Seeker', 'Beater', 'Keeper',  'Chaser'
+    '', 'Seeker', 'Beater', 'Keeper',  'Chaser'
 ]

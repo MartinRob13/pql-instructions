@@ -18,13 +18,6 @@
   ],
   "players": [
     {
-      "id": 1,
-      "name": "Harry Potter",
-      "age": 11,
-      "position": "Seeker",
-      "team_id": 1
-    },
-    {
       "id": 2,
       "name": "Hermione Granger",
       "age": 11,
@@ -179,18 +172,17 @@
       "team_id": null
     },
     {
-      "id": 31,
-      "name": "Bletchley",
-      "age": 17,
-      "position": "Chaser",
-      "team_id": null
-    },
-    {
       "id": 32,
       "name": "Pucey",
       "age": 17,
       "position": "Chaser",
       "team_id": null
+    },
+    {
+      "name": "mashle burnedead ",
+      "age": "22",
+      "position": "Beater",
+      "id": 34
     }
   ]
 }
