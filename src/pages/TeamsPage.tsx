@@ -10,7 +10,7 @@ import { TeamsForm } from "../components/TeamsForm";
 export const TeamsPage = () => {
   
   const [isOpen, setIsOpen] = useState(false);
-  const {teams} = useAppSelector(state => state.league)
+  const {teams, players} = useAppSelector(state => state.league)
   const onClickNewTeam = () => {
     setIsOpen(!isOpen);
 
@@ -41,7 +41,7 @@ export const TeamsPage = () => {
           </Grid>
           <Grid item xs={12} md={4}  >
             {
-                teams && (<TeamsList teams={teams} />)
+                teams && (<TeamsList teams={teams} players={players} />)
             }
             
           </Grid>
