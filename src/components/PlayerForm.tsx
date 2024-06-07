@@ -1,11 +1,10 @@
 import { Close } from "@mui/icons-material"
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, IconButton, InputLabel, MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material"
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, IconButton, InputLabel, MenuItem, Select, TextField } from "@mui/material"
 import { FormEvent } from "react";
 import { targetProps, useForm } from "../hooks/useForm";
 import { seletOptions } from "../utils/staticData";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { createNewPlayer } from "../store/league/thunks";
-import { SubmitTarget } from "react-router-dom/dist/dom";
 
 
 interface TeamsFormProps {

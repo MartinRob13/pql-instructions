@@ -33,7 +33,7 @@ export const leagueSlice = createSlice({
             state.isSaving = false;
         },
         updateTeam: (state, action) => {
-
+            state.teams = action.payload
         },
         deleteTeamById:(state, action) => {
 

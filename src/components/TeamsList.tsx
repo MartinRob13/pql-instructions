@@ -1,12 +1,14 @@
 import { Accordion, AccordionDetails, AccordionSummary, Box, Stack } from '@mui/material'
-import { teamInterface } from '../utils/Interfaces'
+import { playerInterface, teamInterface } from '../utils/Interfaces'
 import { ExpandMore } from '@mui/icons-material'
+import { MembersList } from './MembersList';
 
 interface TeamsListProps {
     teams: teamInterface[];
+    players: playerInterface[];
 }
 
-export const TeamsList = ({teams}:TeamsListProps) => {
+export const TeamsList = ({teams, players}:TeamsListProps) => {
   return (
     <Stack direction="column" spacing={1} sx={{ maxWidth: '700px'}}>
     {
@@ -24,7 +26,7 @@ export const TeamsList = ({teams}:TeamsListProps) => {
               </Box>
             </AccordionSummary>
             <AccordionDetails>
-                Aqui van los jugadores
+               <MembersList members={players} teamId={team.id}/>
             </AccordionDetails>
           </Accordion>
 
