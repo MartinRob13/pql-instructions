@@ -3,10 +3,9 @@ import { HeroBanner, HeroBannerProps } from "../components/HeroBanner"
 import { AppLayout } from "../layout/AppLayout"
 import { AddCircle } from "@mui/icons-material";
 import { TeamsList } from "../components/TeamsList";
-import { useAppDispatch, useAppSelector } from "../hooks/useAppDispatch";
+import { useAppSelector } from "../hooks/useAppDispatch";
 import { useState } from "react";
 import { TeamsForm } from "../components/TeamsForm";
-import {startLoadingTeams} from "../store/league/thunks";
 
 export const TeamsPage = () => {
   
@@ -16,10 +15,6 @@ export const TeamsPage = () => {
     setIsOpen(!isOpen);
 
   }
-
-  const dispatch = useAppDispatch();
-
-  dispatch( startLoadingTeams() );
 
   const closeDialog = (status:boolean) => {
       setIsOpen(status);

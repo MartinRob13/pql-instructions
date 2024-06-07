@@ -4,15 +4,16 @@ import { AppLayout } from "../layout/AppLayout"
 import { AddCircle } from "@mui/icons-material";
 import { useState } from "react";
 import { PlayerForm } from "../components/PlayerForm";
-import { useFetchGetPlayers } from "../hooks/useFetchGetPlayers";
 import { PlayersTable } from "../components/PlayersTable";
+import { useAppSelector } from "../hooks/useAppDispatch";
 
 export const PlayersPage = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   
-  const {allPlayers} = useFetchGetPlayers();
-  console.log(typeof allPlayers)
+  const {players} = useAppSelector(state => state.league)
+
+
   const onClickNewPlayer = () => {
     setIsOpen(!isOpen);
 
@@ -42,7 +43,7 @@ export const PlayersPage = () => {
           </Grid>
         </Grid>
         <Grid item  sx={{ display:'flex', flexDirection: 'column', width: '100%'}}>
-            <PlayersTable allPlayers={allPlayers}/>
+            <PlayersTable allPlayers={players}/>
         </Grid>
         </Grid>
         <PlayerForm

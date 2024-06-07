@@ -9,6 +9,11 @@
       "id": 2,
       "name": "Slytherin",
       "slogan": "Ambition, pride and cunning"
+    },
+    {
+      "name": "Potters",
+      "slogan": "the child who lives!",
+      "id": 3
     }
   ],
   "players": [
@@ -34,45 +39,10 @@
       "team_id": 1
     },
     {
-      "id": 4,
-      "name": "Draco Malfoy",
-      "age": 11,
-      "position": "Chaser",
-      "team_id": null
-    },
-    {
-      "id": 5,
-      "name": "Cedric Diggory",
-      "age": 17,
-      "position": "Seeker",
-      "team_id": null
-    },
-    {
-      "id": 6,
-      "name": "Cho Chang",
-      "age": 16,
-      "position": "Chaser",
-      "team_id": null
-    },
-    {
-      "id": 7,
-      "name": "Luna Lovegood",
-      "age": 14,
-      "position": "Chaser",
-      "team_id": null
-    },
-    {
       "id": 8,
       "name": "Ginny Weasley",
       "age": 14,
       "position": "Chaser",
-      "team_id": null
-    },
-    {
-      "id": 9,
-      "name": "Neville Longbottom",
-      "age": 11,
-      "position": "Keeper",
       "team_id": null
     },
     {
@@ -153,20 +123,6 @@
       "team_id": null
     },
     {
-      "id": 21,
-      "name": "Urquhart",
-      "age": 17,
-      "position": "Chaser",
-      "team_id": null
-    },
-    {
-      "id": 22,
-      "name": "Vaisey",
-      "age": 17,
-      "position": "Chaser",
-      "team_id": null
-    },
-    {
       "id": 23,
       "name": "Derrick",
       "age": 17,
@@ -232,34 +188,6 @@
     {
       "id": 32,
       "name": "Pucey",
-      "age": 17,
-      "position": "Chaser",
-      "team_id": null
-    },
-    {
-      "id": 33,
-      "name": "Warrington",
-      "age": 17,
-      "position": "Chaser",
-      "team_id": null
-    },
-    {
-      "id": 34,
-      "name": "Whitby",
-      "age": 17,
-      "position": "Chaser",
-      "team_id": null
-    },
-    {
-      "id": 35,
-      "name": "Kirke",
-      "age": 17,
-      "position": "Chaser",
-      "team_id": null
-    },
-    {
-      "id": 36,
-      "name": "Bell",
       "age": 17,
       "position": "Chaser",
       "team_id": null

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { playerInterface } from "../utils/Interfaces";
 
-export const useFetchGetPlayers = () => {
+export const useFetchGetPlayers = async() => {
+    
     const [allPlayers, setAllPlayers] = useState<playerInterface[]>([]);
 
     useEffect(() => {
